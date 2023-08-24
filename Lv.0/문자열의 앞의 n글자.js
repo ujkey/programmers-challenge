@@ -9,7 +9,7 @@
 
     3. Array.prototype.slice(begin[, end])
         - 배열의 begin 부터 end 까지(end 미포함)에 대한 얕은 복사본을 새로운 배열 객체로 반환
-        - 문자열 뒤에서부터 자르기에 효율적
+        - 문자열 뒤에서부터 자르기에 효율적(-1 * begin)
 */
 
 function solution(my_string, n) {

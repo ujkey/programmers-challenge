@@ -1,5 +1,5 @@
 /*
-    문자열 반전
+    문자열 반전(뒤집기)
     1. String.protype.split(substring)
         - 문자열을 부분 문자열(substring)로 구분해 문자열 객체를 여러 개의 문자열로 이루어진 배열로 분할
     2. Array.protype.reverse()

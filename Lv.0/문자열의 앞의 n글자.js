@@ -14,6 +14,8 @@
     4. Array.prototype.splice(start[, deleteCount[, item1[, item2[, ...]]]])
         - 배열의 기존 요소를 삭제/교체/새 요소를 추가하여 배열의 내용을 변경
         - 시작값 음수 가능(역방향 자르기) : arr.splice(-idx, n)
+        - 배열의 특정 위치에 요소 추가하기 : arr.splice(인덱스, 0, 요소)
+            - 두번째 매개변수에 0을 입력하면 아무것도 제거하지 않음
         - Array.prototype.slice()와의 차이
             - slice: 원본 배열은 수정되지 않음
             - splice : 원본 배열 자체를 수정

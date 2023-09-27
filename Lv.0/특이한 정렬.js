@@ -1,29 +1,15 @@
-// function solution(numlist, n) {
-//     var answer = [];
-//
-//     answer = numlist.sort(function(v1, v2) {
-//         const a = Math.abs(v1-n);
-//         const b = Math.abs(v2-n);
-//
-//         if(a < b) return -1;
-//         if(a == b) return -1; // 거리가 같다면 더 큰 수를 앞에 오도록 배치
-//     })
-//
-//     return answer;
-// }
-
-// 미해결
 function solution(numlist, n) {
-    var answer = [];
+    /*
+        return numlist.sort((a, b) => {
+            const [nA, nB] = [Math.abs(a-n), Math.abs(b-n)];
 
-    answer = numlist.sort(function(v1, v2) {
-        const a = Math.abs(n-v1);
-        const b = Math.abs(n-v2);
+            // 거리가 같다면 origin value 내림차순 배치
+            if(nA === nB) return b-a;
+            //diff 값에 따라 오름차순 배치
+            return nA-nB;
+        })
+    */
 
-        if(a > b) return 1;
-        if(a === b) return -1;
-        if(a < b) return -1;
-
-    })
-    return answer;
+    //단축평가로 리팩토링 : ASC || DESC
+    return numlist.sort((a, b) => Math.abs(a-n) - Math.abs(b-n) || b-a)
 }

@@ -1,3 +1,31 @@
+// 2차
+function solution(X, Y) {
+    var answer = '';
+
+    const arrX = [...X];
+    const arrY = [...Y];
+    const yObj = {}
+
+    arrY.forEach((y) => {
+        if(yObj[y]) {
+            yObj[y]++;
+        } else {
+            yObj[y]=1;
+        }
+    })
+
+    arrX.sort((a, b) => b-a).forEach((x) => {
+        if(!!yObj[x]) {
+            yObj[x]--;
+            answer+=x;
+        }
+    })
+
+    if(answer.length===0) return '-1';
+    if(answer[0]==="0") return '0';
+    return answer;
+}
+
 /*
     1차
     채점 결과

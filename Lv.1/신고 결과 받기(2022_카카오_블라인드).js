@@ -46,3 +46,30 @@ function solutionA(id_list, report, k) {
 
     return answer;
 }
+
+// 2차
+function solutionB(id_list, report, k) {
+    // 동일한 유저에 대한 신고 횟수는 1회로 처리된다
+    const reports = [...new Set(report)].map((a) => a.split(' '));
+    console.log('reports', reports);
+
+    // 1. 아이디별 신고당한 횟수
+    const counted = new Map();
+    reports.forEach((_report) => {
+        counted.set(_report[1], (counted.get(_report[1])+1) || 1);
+    })
+    console.log('counted', counted);
+
+    // 2. 처리 결과 메일을 받은 횟수(k번 이상 신고당하면 이용 정지)
+    const mail = new Map();
+    // k번이상 신고받았는지 확인
+    reports.forEach((_report) => {
+        if(counted.get(_report[1]) >= k) {
+            mail.set(_report[0], (mail.get(_report[0])+1) || 1);
+        }
+    })
+    console.log('mail', mail);
+
+    const answer = id_list.map((id) => mail.get(id) || 0);
+    return answer;
+}

@@ -23,27 +23,25 @@ function solutionA(numbers, target) {
     return answer;
 }
 
-// 2. 큐 자료구조 활용
+// 2. 스택 자료구조 활용
 function solutionB(numbers, target) {
     let answer = 0; // 타겟 넘버를 완성한 횟수
     const n = numbers.length; // 최대 깊이
 
-    const queue = [];
-    queue.push([0, 0]); // [L, sum]
+    const stack = [];
+    stack.push([0, 0]); // [L, sum]
 
-    while(queue.length) {
-        const [curL, curSum] = queue.shift();
+    while(stack.length) {
+        const [curL, curSum] = stack.pop();
 
         // 종료 조건
         if(curL === n) {
-            if(curSum === target) {
-                answer++;
-            }
-            continue; // return X
+            if(curSum === target) answer++;
+            continue;
         }
 
-        queue.push([curL+1, curSum+numbers[curL]]);
-        queue.push([curL+1, curSum-numbers[curL]]);
+        stack.push([curL+1, curSum+numbers[curL]]);
+        stack.push([curL+1, curSum-numbers[curL]]);
     }
 
     return answer;
